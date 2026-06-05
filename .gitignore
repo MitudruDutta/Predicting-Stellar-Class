@@ -1,0 +1,26 @@
+# secrets
+.env
+
+# model artifacts / cached OOF + test probabilities (large, regenerable)
+artifacts/
+artifacts_v6/
+*.npy
+
+# pipeline run logs
+*.log
+pipeline_stdout.log
+pipeline_*_stdout.log
+
+# raw competition data (download from Kaggle: playground-series-s6e6)
+data/
+
+# intermediate / fallback submissions (kept locally, not tracked)
+submission.csv
+submission_fallback_*.csv
+submission_v4_blend.csv
+submission_v4_wblend.csv
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
