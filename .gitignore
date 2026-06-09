@@ -4,6 +4,8 @@
 # model artifacts / cached OOF + test probabilities (large, regenerable)
 artifacts/
 artifacts_v6/
+artifacts_v8/
+AutogluonModels/
 *.npy
 
 # pipeline run logs
