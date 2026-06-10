@@ -42,6 +42,13 @@ Final prediction -> submission.csv
 | v3      | 0.96711| + LightGBM base                                  |
 | **v4**  | **0.96758** | 6 bases multi-seed -> TabPFN meta (**best**) |
 | v5      | 0.96716| balanced-weighted bases (more correlated)        |
+| v8      | 0.96565 | AutoGluon `best_quality` + `balance_weight`, single model, no blending |
+
+The v8 AutoGluon single model (one `.fit()`, internally multi-level-stacked, optimizing
+`balanced_accuracy` directly) reaches OOF 0.9656 — essentially tied with the hand-built v4 stack.
+The `sample_weight='balance_weight'` lever lifted every booster ~+0.010 (LightGBM 0.9538 -> 0.9642),
+confirming balanced weighting is decisive for this metric. It is a genuinely different, fully
+reproducible single model rather than a vote-average of public submissions.
 
 ## Repository layout
 
@@ -51,6 +58,7 @@ notebook/
   pipeline.py                  # base models + TabPFN meta (v4, the main pipeline)
   pipeline_v5.py               # balanced-weighted base variants
   pipeline_v6.py               # diversity push (KNN / LogReg / wide MLP + extra features)
+  pipeline_v8.py               # AutoGluon best_quality + balance_weight single model
   pipeline_v7.py               # meta-of-metas (stacks all accumulated OOF)
   blender-is-all-you-need.ipynb# reference: weighted submission blender
   tabpfn-3-stacker.ipynb       # reference: TabPFN stacking notebook
