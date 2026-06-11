@@ -22,6 +22,21 @@ submission_fallback_*.csv
 submission_v4_blend.csv
 submission_v4_wblend.csv
 
+# downloaded public artifacts (2GB+, re-fetch via kaggle CLI)
+external/
+
+# LB probe experiment files (regenerable; keep only the ledger)
+probes/*
+!probes/LEDGER.md
+probe_ledger_candidates.csv
+
+# probing-era submissions (experiments, regenerable from probes/LEDGER.md)
+submission_v9*.csv
+submission_v10*.csv
+submission_v11*.csv
+submission_v12*.csv
+submission_v13*.csv
+
 # python
 __pycache__/
 *.pyc
