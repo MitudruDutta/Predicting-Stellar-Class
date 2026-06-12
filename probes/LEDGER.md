@@ -29,3 +29,21 @@
 1. cd external && set -a && source ../.env && set +a && kaggle datasets download nina2025/ps-s6e6 -p nina2025_ps-s6e6 --unzip --force  (check for files > 0.97141 -> re-anchor)
 2. submit the 3 queued probes, paste scores
 3. 2 remaining slots cut same-day from results
+
+## Round 4-5 (2026-06-12): blend vein + errdet STAR-direction — all dead/neutral
+| probe_d4_blendHP1 | combo+12 S/Q blend rows | 0.97139 | -0.00002 | blend vein dry |
+| probe_d4_blendHP2 | combo+12 | 0.97134 | -0.00007 | dry |
+| probe_d4_blendG24 | combo+24 G rows | 0.97137 | -0.00004 | dry |
+| probe_d5_errdet1 | combo+12 errdet S->G | 0.97141 | 0 | breakeven exactly as predicted (82% acc needed) |
+| probe_d5_errdet2 | combo+12 | 0.97141 | 0 | breakeven |
+
+## Round 6-7 (2026-06-12): errdet GALAXY->STAR (payoff asymmetry: breakeven 18%)
+| probe_d6_G2S_err1 | combo+15 ranks1-15 | 0.97140 | -0.00001 | top ranks ambiguous |
+| probe_d6_G2S_err2 | combo+15 ranks16-30 | **0.97147** | **+0.00006** | NEW BEST ~4 right STARs |
+| probe_d6_G2Q_err1 | combo+15 G->Q | 0.97139 | -0.00002 | direction dead |
+| probe_d7_G2S_err3 | 147base+15 ranks31-45 | 0.97144 | -0.00003 | vein decaying |
+| probe_d7_G2S_err4 | 147base+15 ranks46-60 | 0.97141 | -0.00006 | dead at depth |
+
+## State: BEST = probe_d6_G2S_err2.csv = 0.97147 (~#5). Leader 0.97173, gap 0.00026.
+## Next ideas: errdet-v2 binary (GALAXY-pred rows: is it truly STAR?) trained on stacker G/S confusions;
+## QSO->STAR direction (breakeven 41%); rescue err1/err3 rights via splits; retrain errdet w/ deeper features.
