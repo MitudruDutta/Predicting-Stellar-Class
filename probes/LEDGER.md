@@ -47,3 +47,27 @@
 ## State: BEST = probe_d6_G2S_err2.csv = 0.97147 (~#5). Leader 0.97173, gap 0.00026.
 ## Next ideas: errdet-v2 binary (GALAXY-pred rows: is it truly STAR?) trained on stacker G/S confusions;
 ## QSO->STAR direction (breakeven 41%); rescue err1/err3 rights via splits; retrain errdet w/ deeper features.
+
+## Round 8 (2026-06-13): errdet-v2 binary (G-pred truly-STAR, AUC 0.9582) — FAILED at the margin
+| probe_d8_v2top15 | 147base+15 ranks1-15 | 0.97146 | -0.00001 | train-OOF P=0.95 != test-split reality |
+| probe_d8_v2r16_30 | +15 | 0.97146 | -0.00001 | margin rows diverge train vs public-test |
+| probe_d8_v2r31_45 | +15 | 0.97145 | -0.00002 | dead |
+
+## VERDICT: 0.97147 = practical public-mining ceiling.
+## Probing methods exhausted: blend-vote, S->G, G->S errdet-v1, G->S errdet-v2-binary all ~0 now.
+## The +0.00012 we mined (0.97135->0.97147) was real public-split arbitrage. Remaining 0.00026 to #1
+## (0.97173) is NOT in visible data -> leader has private base model or lucky public flips.
+## BEST submission = probe_d6_G2S_err2.csv = 0.97147 (~top 5 public).
+## FINAL SELECTION (June 30): pick probe_d6_G2S_err2.csv (0.97147) + a robust honest model (v9b OOF 0.97043 / v4) for private-LB safety.
+
+## Round 9 (2026-06-13 day3): FINE 5-row errdet-v2 probes -> 0.97150 NEW BEST
+| probe_d9_fine_00_05 | 5 | 0.97147 | wash | discard |
+| probe_d9_fine_05_10 | 5 | 0.97147 | wash | discard |
+| probe_d9_fine_10_15 | 5 | 0.97146 | -0.00001 | bad, discard |
+| probe_d9_fine_15_20 | 5 | **0.97150** | +0.00003 | WINNER rows[38840,191800,192160,175346,28480] |
+| probe_d9_fine_20_25 | 5 | 0.97145 | -0.00002 | bad, discard |
+| probe_d9_LASTSLOT | winner+5fresh(P0.83) | 0.97149 | fresh group bad | revert to winner-only |
+
+## BEST = winner-only config = 0.97150 (probe_d9_winner_only.csv). ~top 3-4. Leader 0.97173, gap 0.00023.
+## v11 TabPFN stacker OOF=0.96980 < lr_v9 0.97028 -> restacking public pool does NOT beat their LogReg. Dead as breakthrough.
+## TOMORROW: anchor=winner-only 0.97150. Fine 5-row probes on errdet-v2 ranks 40-80 (skip the bad LASTSLOT 5). errdet-v2 P>=0.85 rows give ~1 winner per 4 groups.

@@ -36,6 +36,7 @@ submission_v10*.csv
 submission_v11*.csv
 submission_v12*.csv
 submission_v13*.csv
+submission_BEST_0.97150.csv
 
 # python
 __pycache__/
