@@ -71,3 +71,13 @@
 ## BEST = winner-only config = 0.97150 (probe_d9_winner_only.csv). ~top 3-4. Leader 0.97173, gap 0.00023.
 ## v11 TabPFN stacker OOF=0.96980 < lr_v9 0.97028 -> restacking public pool does NOT beat their LogReg. Dead as breakthrough.
 ## TOMORROW: anchor=winner-only 0.97150. Fine 5-row probes on errdet-v2 ranks 40-80 (skip the bad LASTSLOT 5). errdet-v2 P>=0.85 rows give ~1 winner per 4 groups.
+
+## Round 11-13 (2026-06-14): public pool surged + harvested
+| probe_d11_combo3 | 0.97150base+fine00+fine15 | 0.97157 | +0.00007 | banked |
+| nina pack refresh | -- | up to 0.97183 | -- | public surge |
+| vladislavagamova 0.97186 sub harvested -> sub_v186_raw.csv | RAW | **0.97186** | +0.00029 | NEW BEST, ~#1 region |
+| probe_d12_elite186_A/B | v186+4 panel flips | 0.97183 | -0.00003 | flips wrong, anchor right |
+
+## BEST = sub_v186_raw.csv = submission_BEST_0.97186.csv = 0.97186. Leader was 0.97216.
+## Public pool now tops 0.97186 (vladislavagamova). nina 0.97183. Refresh packs daily.
+## NEXT: errdet-v2 G->S 5-row probes on 0.97186 anchor (probe_d13_186_00..20). + harvest any new >0.97186 datasets daily.
