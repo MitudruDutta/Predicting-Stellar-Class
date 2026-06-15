@@ -54,6 +54,7 @@ reproducible single model rather than a vote-average of public submissions.
 
 ```
 notebook/
+  stellar_classification_showcase.ipynb  # self-contained Kaggle notebook (EDA + lever + stack demo)
   model.ipynb                  # EDA + interactive development
   pipeline.py                  # base models + TabPFN meta (v4, the main pipeline)
   pipeline_v5.py               # balanced-weighted base variants
